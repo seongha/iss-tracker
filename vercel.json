@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/iss-now", "destination": "http://api.open-notify.org/iss-now.json" }
+  ]
+}

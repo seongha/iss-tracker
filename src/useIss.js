@@ -2,7 +2,9 @@ import { useEffect, useRef } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getAllPositions, pruneOld, savePosition } from './db.js';
 
-const API_URL = 'http://api.open-notify.org/iss-now.json';
+// open-notify 는 HTTP 전용이라 HTTPS 페이지에서 Mixed Content 로 차단된다.
+// 같은 출처 경로로 요청하고 Vercel rewrite / Vite proxy 가 대신 전달한다.
+const API_URL = '/api/iss-now';
 
 export const MIN_INTERVAL_MS = 5_000;   // Polling 간격 하한
 const MAX_INTERVAL_MS = 60_000;         // Polling 간격 상한
